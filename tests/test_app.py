@@ -20,3 +20,10 @@ def test_health():
     response = client.get("/health")
     assert response.status_code == 200
     assert response.json()["status"] == "ok"
+
+
+def test_subtract():
+    response = client.get("/subtract?a=5&b=2")
+    assert response.status_code == 200
+    assert response.json()["result"] == 3
+
